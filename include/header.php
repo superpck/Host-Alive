@@ -34,7 +34,7 @@
     <nav class="navbar navbar-static-top fixed">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a href="?r=map&group=<?=_HOSTGROUP_;?>" class="navbar-brand"><?=$TitleBand;?></a>
+                <a href="<?=$HomeURL;?>" class="navbar-brand"><?=$TitleBand;?></a>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                     <i class="fa fa-bars"></i>
                 </button>

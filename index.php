@@ -11,9 +11,17 @@ $TimeOut = 3 ;                //Seconds
 $MinuteCheck = 300;     //seconds
 //$HostGroup = (isset($_GET["group"]) && $_GET["group"]!="")? strtoupper($_GET["group"]):'HDC' ;
 define('_HOSTGROUP_',((isset($_GET["group"]) && $_GET["group"]!="")? strtoupper($_GET["group"]):'HDC')) ;
+$HomeURL = '?r=list&group='._HOSTGROUP_;
 
 include "include/db.connect.php";
 
+if (!isset($_SESSION["session_id"]) || $_SESSION["session_id"]=="") {
+    $_SESSION["session_id"] = date("YmdHis").rand(10,99);
+    $Sql = 'INSERT INTO '.$db["dbname"].'.session (sessionid,date,device_info,ip) VALUES ("'.
+                $_SESSION["session_id"].'" , now() ,"'.$_SERVER['HTTP_USER_AGENT'].'" , "'.
+                ($_SERVER['REMOTE_ADDR']==""? $_SERVER['HTTP_X_FORWARDED_FOR']:$_SERVER['REMOTE_ADDR']).') ';
+    $dbconnect->query($Sql);
+}
 $Sql = "SELECT * FROM cchangwat ORDER BY changwatcode";
 $result = $dbconnect->query($Sql);
 $Changwat = [];
@@ -67,7 +75,8 @@ switch ($_GET["r"]) {
         break;
 
     default:
-        echo "<h2>Error 404</h2>";
+        echo "<h2 class='text-center'><a href='".$HomeURL."'><i class='fa fa-home fa-lg'></i> ".$TitleBand.
+                "</a><br /><br /> Error: Error 404</h2>";
         break;
 }
 $dbconnect->close();
