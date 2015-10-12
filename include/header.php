@@ -51,6 +51,8 @@
                             if ($IsShowMap>0){ ?>
                             <li><a href="?r=map&group=<?=_HOSTGROUP_;?>"><i class="fa fa-globe"></i> Status by Map</a></li>
                             <?php } ?>
+                            <li class="divider"></li>
+                            <li><a href="?r=log&group=<?=_HOSTGROUP_;?>"><i class="fa fa-check-square-o"></i> Last checked logging</a></li>
                         </ul>
                     </li>
                     <li><a href="?r=login&group=<?=_HOSTGROUP_;?>"><i class="fa fa-key"></i> Login</a></li>
