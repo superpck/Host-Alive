@@ -4,6 +4,11 @@
     <b>HDC Version</b> 2.1beta on <?='PHP/' . phpversion();?>
     </div>
     <strong>Copyright &copy; 2010-2016 <a href="http://hdc.moph.go.th"><?=$TitleBand;?></a>.</strong> All rights reserved.
+    &nbsp; Find me on &nbsp;
+    <a href="https://plus.google.com/u/0/+%E0%B8%99%E0%B8%B2%E0%B8%A2%E0%B8%9E%E0%B8%A3%E0%B8%8A%E0%B8%B1%E0%B8%A2%E0%B8%84%E0%B9%8D%E0%B8%B2%E0%B9%80%E0%B8%9E%E0%B8%B4%E0%B8%87%E0%B9%83%E0%B8%88" target="_blank"><i class="fa fa-google-plus"></i></a>
+    <a href="https://www.facebook.com/superpck" target="_blank"><i class="fa fa-facebook"></i></a>
+    <a href="https://github.com/superpck/servermonitor" target="_blank"><i class="fa fa-github"></i></a>
+    <a href="https://www.linkedin.com/pub/%E0%B8%9E%E0%B8%A3%E0%B8%8A%E0%B8%B1%E0%B8%A2-%E0%B8%84%E0%B8%B3%E0%B9%80%E0%B8%9E%E0%B8%B4%E0%B8%87%E0%B9%83%E0%B8%88/104/7b5/229" target="_blank"><i class="fa fa-linkedin-square"></i></a>&nbsp;
     </footer>
 
     <!-- jQuery 2.1.4 -->
