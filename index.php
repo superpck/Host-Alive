@@ -6,14 +6,14 @@ ini_set('memory_limit', '512M');
 ob_start("ob_gzhandler");
 
 $CurrentRoot = dirname(__FILE__);
-$BackTracking = 30 ;      //Minute
-$TimeOut = 3 ;                //Seconds
-$MinuteCheck = 300;     //seconds
-//$HostGroup = (isset($_GET["group"]) && $_GET["group"]!="")? strtoupper($_GET["group"]):'HDC' ;
-define('_HOSTGROUP_',((isset($_GET["group"]) && $_GET["group"]!="")? strtoupper($_GET["group"]):'HDC')) ;
-$HomeURL = '?r=list&group='._HOSTGROUP_;
+include ("include/config.php");
+include ("include/db.connect.php");
 
-include "include/db.connect.php";
+$BackTracking = $defaultValues['BackTracking'] ;      //Minute
+$TimeOut = $defaultValues["TimeOut"] ;                //Seconds
+$MinuteCheck = $defaultValues["MinuteCheck"];     //seconds
+define('_HOSTGROUP_',((isset($_GET["group"]) && $_GET["group"]!="")? strtoupper($_GET["group"]):$defaultValues["Group"])) ;
+$HomeURL = '?r='.$defaultValues["Home"].'&group='._HOSTGROUP_;
 
 if (!isset($_SESSION["session_id"]) || $_SESSION["session_id"]=="") {
     $_SESSION["session_id"] = date("YmdHis").rand(10,99);
@@ -66,7 +66,7 @@ switch ($_GET["r"]) {
 
     case 'log':
         echo '<div class="box box-warning">';
-        if (is_file("host_check_log.html") ) {
+        if (is_file("host_check_log.html")) {
             include "host_check_log.html";
         } else {
             echo '<h2> Wait for background checking complete.</h2>';

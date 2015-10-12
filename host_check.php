@@ -5,7 +5,7 @@ ob_start("ob_gzhandler");
 
 echo '<h3><b>Start: ',date("Y-m-d H:i:s"),'</b></h3>';
 $CurrentRoot = dirname(__FILE__);
-$TimeOut = 12 ;        //Seconds
+include ("include/config.php");
 include "include/db.connect.php";
 
 $time = explode(" ", microtime());
@@ -24,11 +24,12 @@ while ($row = $result->fetch_assoc()) {
     echo " host: " . $cHost;
     $IsOn = 0;
     $Today = date("Y-m-d H:i:s");
+    $Lastlog = '';
     foreach ($Ports as $key => $port) {
         $time = explode(" ", microtime());
         $startping = $time[1] + $time[0];
 
-        $IsPing = pingPort($cHost,$port,$TimeOut);
+        $IsPing = pingPort($cHost,$port,$defaultValues["TimeOut"]);
 
         $time = explode(" ", microtime());
         $totaltime = ($time[1] + $time[0] - $startping);
@@ -36,12 +37,14 @@ while ($row = $result->fetch_assoc()) {
         $Return["data"][$cHost]["port"]["$port"] = $IsPing;
 
         $IsOn += $IsPing? 1:0;
-        echo '  [',$port. ':'.($IsPing? '<font color="green">On</font>':'<font color="red">Off</font>'),']';
+        $Lastlog .= '[',$port. ':'.($IsPing? '<font color="green">On</font>':'<font color="red">Off</font>'),'] ';
+        echo $Lastlog;
         $Sql = "INSERT INTO host_status (host,port,result,date,duration) ".
                                     " VALUES ('".$row["ref"]."' , '".$port."' , '".$IsPing."' , '".$Today."' ,'".$totaltime."')";
         $dbconnect->query($Sql);
     }
-    $Sql = "UPDATE host_detail SET lastcheck = now(), laststatus=$IsOn WHERE host='$cHost' ";
+    $Sql = "UPDATE host_detail SET lastcheck = now(), laststatus=$IsOn ".
+                ", lastlog='".$Lastlog."' WHERE host='$cHost' ";
     $dbconnect->query($Sql);
 
     $time = explode(" ", microtime());
@@ -56,7 +59,7 @@ $time = explode(" ", microtime());
 $totaltime = ($time[1] + $time[0] - $starttime);
 $Return['date_end'] = date("Y-m-d H:i:s");
 $Return['timeused'] = $totaltime;
-echo '<hr>End: ',date("Y-m-d H:i:s"),' time used: ',$totaltime;
+printf("<hr>End: %s time used: %d:%02d",date("Y-m-d H:i:s"),$totaltime/60,fmod($totaltime,60));
 
 return;
 
