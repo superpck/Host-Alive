@@ -1,7 +1,7 @@
     </div><!-- /.wrapper -->
     <footer class="main-footer">
     <div class="pull-right hidden-xs">
-    <b>HDC Version</b> 2.1beta on <?='PHP/' . phpversion();?>
+    <b>HDC Version</b> 2.1beta on <?='PHP/' . phpversion();?> (<?=$_SESSION["host_sessionid"];?>)
     </div>
     <strong>Copyright &copy; 2010-2016 <a href="http://hdc.moph.go.th"><?=$TitleBand;?></a>.</strong> All rights reserved.
     &nbsp; Find me on &nbsp;
