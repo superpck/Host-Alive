@@ -9,7 +9,7 @@
 * ทำการ clone หรือ download file จาก repo นี้ ไปไว้ใน Folder ที่สร้างไว้ ยกเว้น folder images เพราะไม่ได้ใช้
 * download theme adminLTE จาก https://github.com/almasaeed2010/AdminLTE มาไว้ใน folder AdminLTE
 * สร้างฐานข้อมูล monitoring หรือชื่ออื่นตามต้องการ จากนั้นให้ run script db.sql ที่อยู่ใน include เพื่อสร้างตาราง
-* ทำการแก้ไข config file ใน includ/edefault_values.php ให้ถูกต้อง
+* ทำการแก้ไข config file ใน includ/default_values.php ให้ถูกต้อง
 ```javascript
  $db = [
         'host'=>'localhost',
