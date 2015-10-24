@@ -46,7 +46,15 @@ $db = [
 ```
 *
  *..
+
+#### system requirement
+* webserver
+* php version 5.4 ขึ้นไป
+* adminLTE version 2.3 ขึ้นไป
+* ระบบที่สามารถ run crontab หรือ schedule (windows) ได้
  
+
+
 #### ตัวอย่างหน้าจอที่ใช้ในการ Monitor แบบแผนที่
 ![GitHub Logo](/images/map_display.png)
 
