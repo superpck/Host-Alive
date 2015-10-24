@@ -1,21 +1,10 @@
 <?php
-    $db = [
-        'host'=>'localhost',
-        'username'=>'root',
-        'password'=>'',
-        'port'=>'3306',
-        'dbname'=>'monitoring',
-        'charset'=>'utf8',
-        'socket'=>""
-    ];
+// Overide Default Config
 
-    $defaultValues = [
-        'DefaultMail' =>'email@mail.com',
-        'BackTracking' => 30,          //Read Minute
-        'TimeOut' => 8,                   //try to check port in Seconds
-        'MinuteCheck' => 300,        //duration checking period in seconds
-        'screenRefresh' => 300,        //refresh website for new data in Seconds
-        'Group'=>'HDC',
-        'Home'=>'list'
-    ];
-?>
+date_default_timezone_set("Asia/Bangkok");
+error_reporting(E_ERROR | E_PARSE);
+ini_set('memory_limit', '512M');
+ob_start("ob_gzhandler");
+
+include ($CurrentRoot."/include/default.values.php");
+include ($CurrentRoot."/include/db.connect.php");

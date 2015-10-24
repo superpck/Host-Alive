@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="refresh" content="<?=$defaultValues["screenRefresh"];?>">
-    <title>Status of <?=$TitleBand;?> (<?=date("Y-m-d H:i:s");?>)</title>
+    <title><?=$defaultValues["siteName"];?> V.<?=$defaultValues["siteVersion"];?> (<?=date("Y-m-d H:i:s");?>)</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="AdminLTE/bootstrap/css/bootstrap.min.css">
@@ -34,7 +34,7 @@
     <nav class="navbar navbar-static-top fixed">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a href="<?=$HomeURL;?>" class="navbar-brand"><?=$TitleBand;?></a>
+                <a href="?r=<?=$defaultValues["homeUrl"].'&group='.$_GET["group"];?>" class="navbar-brand"><?=$defaultValues["siteName"];?></a>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
