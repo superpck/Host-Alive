@@ -11,7 +11,7 @@
 
     $defaultValues = [
         'siteName'=>'HOST Alive',
-        'siteVersion'=>'1.01b',                                    // !!! Don't change
+        'siteVersion'=>'1.02b',                                    // !!! Don't change
         'defaultMail' =>'superpck@yahoo.com',
         'defaultGroup'=>'HDC',
         'backTracking' => 30,            // Read Minute
