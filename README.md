@@ -8,7 +8,8 @@
 * ทำการ clone หรือ download file จาก repo นี้ ไปไว้ใน Folder ที่สร้างไว้ ยกเว้น folder images เพราะไม่ได้ใช้
 * download theme adminLTE จาก https://github.com/almasaeed2010/AdminLTE มาไว้ใน folder AdminLTE
 * ทำการแก้ไข config file ใน include/config.php
-``` $db = [
+```javascript
+$db = [
         'host'=>'localhost',
         'username'=>'root',
         'password'=>'',
