@@ -8,7 +8,8 @@
   * c:\xampp\htdocs\hostmonitor
 * ทำการ clone หรือ download file จาก repo นี้ ไปไว้ใน Folder ที่สร้างไว้ ยกเว้น folder images เพราะไม่ได้ใช้
 * download theme adminLTE จาก https://github.com/almasaeed2010/AdminLTE มาไว้ใน folder AdminLTE
-* ทำการแก้ไข config file ใน include/config.php
+* สร้างฐานข้อมูล monitoring หรือชื่ออื่นตามต้องการ จากนั้นให้ run script db.sql ที่อยู่ใน include เพื่อสร้างตาราง
+* ทำการแก้ไข config file ใน include/config.php ให้ถูกต้อง
 ```javascript
 $db = [
         'host'=>'localhost',
@@ -48,7 +49,7 @@ $db = [
  *..
 
 #### system requirement
-* webserver
+* webserver ของ vendor ใดก็ได้
 * php version 5.4 ขึ้นไป
 * adminLTE version 2.3 ขึ้นไป
 * ระบบที่สามารถ run crontab หรือ schedule (windows) ได้
